@@ -32,6 +32,7 @@
             color: var(--text-dark);
             overflow-x: hidden;
             line-height: 1.6;
+            padding-bottom: 100px; /* Space for curved footer */
         }
 
         .container {
@@ -89,6 +90,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .open-site-btn:hover {
@@ -118,6 +120,7 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .lang-btn.active {
@@ -141,6 +144,7 @@
             color: var(--primary-purple);
             margin-bottom: 20px;
             font-weight: 800;
+            line-height: 1.2;
         }
 
         .intro-text {
@@ -195,6 +199,7 @@
             margin-bottom: 30px;
             text-align: center;
             font-weight: 800;
+            line-height: 1.2;
         }
 
         .guide-step {
@@ -236,15 +241,16 @@
             margin-bottom: 15px;
         }
 
-        /* Footer */
-        .footer-bar {
+        /* CURVED Footer */
+        .curved-footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
-            padding: 15px 0;
-            box-shadow: 0 -5px 20px rgba(106, 17, 203, 0.2);
+            padding: 25px 0 40px;
+            border-radius: 40% 40% 0 0;
+            box-shadow: 0 -10px 30px rgba(106, 17, 203, 0.3);
             z-index: 100;
         }
 
@@ -253,6 +259,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .official-site-btn {
@@ -269,6 +277,7 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            white-space: nowrap;
         }
 
         .official-site-btn:hover {
@@ -281,6 +290,8 @@
             font-size: 0.9rem;
             opacity: 0.9;
             text-align: right;
+            flex: 1;
+            min-width: 200px;
         }
 
         /* Language-specific content */
@@ -298,42 +309,183 @@
             to { opacity: 1; }
         }
 
-        /* Responsive Design */
+        /* ================= MOBILE OPTIMIZATIONS ================= */
         @media (max-width: 768px) {
+            body {
+                padding-bottom: 90px;
+            }
+            
             .curved-header {
                 border-radius: 0 0 30% 30%;
-                padding-bottom: 60px;
+                padding: 15px 0 60px;
             }
             
             .header-content {
                 flex-direction: column;
-                gap: 20px;
-                padding-top: 20px;
+                gap: 15px;
+                padding-top: 10px;
+                align-items: stretch;
+            }
+            
+            .logo-container {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .site-name {
+                font-size: 1.5rem;
+            }
+            
+            .open-site-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                justify-content: center;
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
             }
             
             .language-toggle {
                 position: relative;
                 top: 0;
                 right: 0;
-                margin-top: 20px;
+                margin-top: 15px;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .lang-btn {
+                padding: 8px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .main-content {
+                padding: 30px 0 80px;
             }
             
             .intro-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
+            .games-showcase {
+                gap: 15px;
+                margin-top: 30px;
+            }
+            
+            .game-icon {
+                padding: 15px 20px;
+                min-width: 100px;
+                flex: 1;
+                max-width: calc(50% - 15px);
+            }
+            
+            .game-icon i {
                 font-size: 2rem;
             }
             
             .guide-section {
-                padding: 25px;
+                padding: 25px 20px;
+                margin-top: 30px;
+                border-radius: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+            
+            .guide-step {
+                margin-bottom: 40px;
+            }
+            
+            .guide-text {
+                font-size: 1rem;
+                padding: 0 10px;
+                margin-bottom: 15px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+            
+            /* CURVED FOOTER MOBILE */
+            .curved-footer {
+                padding: 20px 0 35px;
+                border-radius: 30% 30% 0 0;
             }
             
             .footer-content {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
                 text-align: center;
+                padding: 0 15px;
+            }
+            
+            .official-site-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
             
             .subtext {
                 text-align: center;
+                font-size: 0.85rem;
+                min-width: auto;
+                margin-top: 5px;
+            }
+        }
+
+        /* Extra Small Mobile Optimization */
+        @media (max-width: 480px) {
+            .curved-header {
+                border-radius: 0 0 25% 25%;
+                padding-bottom: 50px;
+            }
+            
+            .intro-title {
+                font-size: 1.6rem;
+            }
+            
+            .game-icon {
+                max-width: calc(50% - 10px);
+                padding: 12px 15px;
+                min-width: auto;
+            }
+            
+            .game-icon i {
+                font-size: 1.8rem;
+            }
+            
+            .guide-section {
+                padding: 20px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .curved-footer {
+                border-radius: 25% 25% 0 0;
+                padding: 15px 0 30px;
+            }
+            
+            .official-site-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
         }
 
@@ -345,6 +497,26 @@
 
         .preload-image {
             display: none;
+        }
+        
+        /* Prevent text overflow on very small screens */
+        @media (max-width: 360px) {
+            .site-name {
+                font-size: 1.3rem;
+            }
+            
+            .intro-title {
+                font-size: 1.4rem;
+            }
+            
+            .game-icon {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            
+            .game-icon i {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -466,8 +638,8 @@
         </div>
     </main>
 
-    <!-- Fixed Footer Bar -->
-    <footer class="footer-bar">
+    <!-- CURVED Fixed Footer Bar -->
+    <footer class="curved-footer">
         <div class="container">
             <div class="footer-content">
                 <button class="official-site-btn" id="officialSiteBtn">
@@ -488,6 +660,7 @@
             const langContents = document.querySelectorAll('.lang-content');
             const introText = document.getElementById('introText');
             const guideTitle = document.getElementById('guideTitle');
+            const subtextElement = document.querySelector('.subtext');
             
             // English content
             const englishContent = {
@@ -523,11 +696,11 @@
                     if (selectedLang === 'en') {
                         introText.textContent = englishContent.intro;
                         guideTitle.textContent = englishContent.guideTitle;
-                        document.querySelector('.subtext').textContent = englishContent.footerSubtext;
+                        subtextElement.textContent = englishContent.footerSubtext;
                     } else if (selectedLang === 'hi') {
                         introText.textContent = hindiContent.intro;
                         guideTitle.textContent = hindiContent.guideTitle;
-                        document.querySelector('.subtext').textContent = hindiContent.footerSubtext;
+                        subtextElement.textContent = hindiContent.footerSubtext;
                     }
                 });
             });
@@ -541,10 +714,38 @@
                 window.open('https://acewin247.club', '_blank');
             });
             
-            // Lazy loading for images (already implemented by browser)
-            // Add loading="lazy" to images for better performance
+            // Lazy loading for images
             document.querySelectorAll('img').forEach(img => {
                 img.setAttribute('loading', 'lazy');
+            });
+            
+            // Mobile-specific optimizations
+            function checkMobileView() {
+                const isMobile = window.innerWidth <= 768;
+                
+                // Adjust footer curve for mobile
+                const footer = document.querySelector('.curved-footer');
+                if (isMobile) {
+                    // On mobile, reduce the curve radius
+                    footer.style.borderRadius = "30% 30% 0 0";
+                } else {
+                    footer.style.borderRadius = "40% 40% 0 0";
+                }
+            }
+            
+            // Check on load and resize
+            checkMobileView();
+            window.addEventListener('resize', checkMobileView);
+            
+            // Improve mobile touch experience
+            document.querySelectorAll('button').forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
             });
         });
     </script>
