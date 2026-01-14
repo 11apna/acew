@@ -3,317 +3,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Entertainment Hub | Play All Game Types</title>
+    <title>Acewin247 | Premium Gaming Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-purple: #6a11cb;
+            --secondary-purple: #8a2be2;
+            --light-purple: #b19cd9;
+            --accent-gold: #ffd700;
+            --dark-bg: #0f0c29;
+            --light-bg: #f9f7fe;
+            --text-dark: #333;
+            --text-light: #fff;
+            --success-green: #4CAF50;
+            --warning-red: #f44336;
+            --shadow: 0 10px 30px rgba(106, 17, 203, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
-                        url('https://applescoop.org/image/wallpapers/iphone/iphone-16-black-stock-21-09-2024-1726985676-hd-wallpaper.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
             line-height: 1.6;
         }
-        
+
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Curved Header */
+        .curved-header {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+            border-radius: 0 0 40% 40%;
+            padding: 20px 0 80px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+        }
+
+        .site-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .open-site-btn {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .open-site-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            display: flex;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 5px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0 100px;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .intro-title {
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
             max-width: 800px;
-            width: 100%;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .games-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .game-icon {
+            background: white;
+            border-radius: 20px;
+            padding: 20px 30px;
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            transition: transform 0.3s ease;
+            min-width: 120px;
+        }
+
+        .game-icon:hover {
+            transform: translateY(-10px);
+        }
+
+        .game-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        .section-title {
+            color: var(--primary-purple);
+            font-size: 2rem;
+            margin-bottom: 30px;
             text-align: center;
-            margin-top: 20px;
+            font-weight: 800;
         }
-        
-        header {
-            width: 100%;
-            padding: 20px 0;
-            margin-bottom: 30px;
+
+        .guide-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
         }
-        
-        .logo {
-            max-width: 320px;
-            width: 100%;
-            height: auto;
+
+        .guide-text {
+            font-size: 1.2rem;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+            text-align: center;
+            padding: 0 20px;
         }
-        
-        .tagline {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            color: #FFD700;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-            font-weight: 600;
-        }
-        
-        .main-content {
-            background: rgba(30, 30, 30, 0.8);
+
+        .guide-image {
+            max-width: 100%;
             border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            width: 100%;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid var(--light-purple);
+            transition: transform 0.3s ease;
         }
-        
-        .whatsapp-section {
-            margin: 30px 0;
-            padding: 25px;
-            background: rgba(37, 211, 102, 0.1);
-            border-radius: 12px;
-            border: 2px solid rgba(37, 211, 102, 0.3);
+
+        .guide-image:hover {
+            transform: scale(1.02);
         }
-        
-        .whatsapp-btn {
+
+        .step-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #25D366;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-purple);
             color: white;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            padding: 16px 30px;
-            border-radius: 50px;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
-        
-        .whatsapp-btn:hover {
-            background: #1DA851;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
-        }
-        
-        .whatsapp-btn i {
-            margin-right: 10px;
-            font-size: 1.5rem;
-        }
-        
-        .phone-number {
-            font-size: 1.8rem;
+            border-radius: 50%;
             font-weight: bold;
-            color: #25D366;
-            margin: 15px 0;
-            letter-spacing: 1px;
-        }
-        
-        .features {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 30px 0;
-        }
-        
-        .feature {
-            flex: 1;
-            min-width: 200px;
-            padding: 20px;
-            margin: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            color: #FFD700;
             margin-bottom: 15px;
         }
-        
-        .feature h3 {
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-        
-        footer {
-            margin-top: 20px;
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-            color: #FFD700;
-            font-size: 1.3rem;
-            font-weight: 600;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-        }
-        
-        .bottom-bar {
+
+        /* Footer */
+        .footer-bar {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
-            background: rgba(20, 20, 20, 0.95);
-            padding: 15px;
-            text-align: center;
-            border-top: 2px solid #FFD700;
+            right: 0;
+            background: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+            padding: 15px 0;
+            box-shadow: 0 -5px 20px rgba(106, 17, 203, 0.2);
             z-index: 100;
         }
-        
-        .official-btn {
-            display: inline-block;
-            background: linear-gradient(to right, #FFD700, #FFA500);
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 14px 40px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .official-site-btn {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
             border: none;
-            cursor: pointer;
-        }
-        
-        .official-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
-        }
-        
-        .contact-info {
-            margin-top: 15px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 800;
             font-size: 1.1rem;
-            color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
-        
+
+        .official-site-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .subtext {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-align: right;
+        }
+
+        /* Language-specific content */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-                margin-top: 10px;
+            .curved-header {
+                border-radius: 0 0 30% 30%;
+                padding-bottom: 60px;
             }
             
-            .logo {
-                max-width: 250px;
-            }
-            
-            .tagline {
-                font-size: 1.5rem;
-            }
-            
-            .main-content {
-                padding: 20px;
-            }
-            
-            .features {
+            .header-content {
                 flex-direction: column;
+                gap: 20px;
+                padding-top: 20px;
             }
             
-            .feature {
-                min-width: 100%;
-                margin: 10px 0;
+            .language-toggle {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-top: 20px;
             }
             
-            .phone-number {
-                font-size: 1.5rem;
+            .intro-title {
+                font-size: 2rem;
             }
+            
+            .guide-section {
+                padding: 25px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .subtext {
+                text-align: center;
+            }
+        }
+
+        /* Performance optimizations */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .preload-image {
+            display: none;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="https://speedcdn.io/assets/logos/acewin247.com.png" alt="Premium Entertainment Hub" class="logo">
-            <h1 class="tagline">Play Every Type of Game</h1>
-        </header>
-        
-        <main class="main-content">
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">
-                Welcome to the ultimate entertainment platform where you can enjoy a wide variety of exciting games. 
-                Experience premium entertainment with instant access to all your favorite game types.
-            </p>
-            
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-gamepad"></i>
-                    <h3>Multiple Game Types</h3>
-                    <p>Access a diverse collection of entertainment options for all preferences</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Instant Access</h3>
-                    <p>Get immediate entry to premium entertainment experiences</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure Platform</h3>
-                    <p>Enjoy peace of mind with our protected entertainment environment</p>
-                </div>
-            </div>
-            
-            <div class="whatsapp-section">
-                <h2><i class="fab fa-whatsapp"></i> Contact for New ID and Refill</h2>
-                <p>Get in touch with our support team for assistance with new accounts and refills</p>
-                
-                <div class="phone-number">+44 7449773701</div>
-                
-                <a href="https://wa.me/447449773701?text=Hello%20I%20want%20ID" class="whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                
-                <p style="margin-top: 15px; font-size: 0.9rem; color: #ccc;">
-                    Available 24/7 for your entertainment needs
-                </p>
-            </div>
-            
-            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 215, 0, 0.05); border-radius: 10px;">
-                <h3><i class="fas fa-star"></i> Premium Benefits</h3>
-                <p style="margin-top: 10px;">
-                    Join our exclusive entertainment community today and unlock special rewards, 
-                    bonuses, and access to premium game collections.
-                </p>
-            </div>
-        </main>
-        
-        <footer>
-            अभी signup करे
-        </footer>
+    <!-- Preload images for faster loading -->
+    <div class="preload-image">
+        <img src="https://assets3.hurry2.com/site_logo/acewin247.png" alt="Preload logo">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/6968113a6df4f_Screenshot2026-01-15032051.png" alt="Preload step 1">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/69681143c93a5_Screenshot2026-01-15032406.png" alt="Preload step 2">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/696811515346a_Screenshot2026-01-15032614.png" alt="Preload step 3">
     </div>
-    
-    <div class="bottom-bar">
-        <a href="https://www.acewin247.com" class="official-btn" target="_blank">
-            <i class="fas fa-external-link-alt"></i> GO TO OFFICIAL SITE
-        </a>
-        <div class="contact-info">
-            Official Entertainment Hub • Premium Game Collection • 24/7 Support
+
+    <!-- Curved Header -->
+    <header class="curved-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://assets3.hurry2.com/site_logo/acewin247.png" alt="Acewin247 Logo" class="logo">
+                    <div class="site-name">Acewin247</div>
+                </div>
+                <button class="open-site-btn" id="openSiteBtn">
+                    <i class="fas fa-external-link-alt"></i>
+                    Acewin247.club
+                </button>
+            </div>
+            
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en">ENG</button>
+                <button class="lang-btn" data-lang="hi">हिंदी</button>
+            </div>
         </div>
-    </div>
-    
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Intro Section -->
+            <section class="intro-section">
+                <h1 class="intro-title">Ultimate Gaming Experience</h1>
+                <p class="intro-text" id="introText">This is a premium gaming site featuring all your favorite games like cricket, football, tennis, casino games, and more. Join thousands of players for an unmatched gaming experience with exciting rewards and tournaments.</p>
+                
+                <div class="games-showcase">
+                    <div class="game-icon">
+                        <i class="fas fa-baseball-ball"></i>
+                        <span>Cricket</span>
+                    </div>
+                    <div class="game-icon">
+                        <i class="fas fa-futbol"></i>
+                        <span>Football</span>
+                    </div>
+                    <div class="game-icon">
+                        <i class="fas fa-table-tennis"></i>
+                        <span>Tennis</span>
+                    </div>
+                    <div class="game-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                        <span>Basketball</span>
+                    </div>
+                    <div class="game-icon">
+                        <i class="fas fa-dice"></i>
+                        <span>Casino</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guide Section -->
+            <section class="guide-section">
+                <h2 class="section-title" id="guideTitle">Guide for New Users</h2>
+                
+                <!-- English Guide Content -->
+                <div class="lang-content active" id="guide-en">
+                    <!-- Step 1 -->
+                    <div class="guide-step">
+                        <div class="step-number">1</div>
+                        <p class="guide-text">Open Official site and click on signup [Look at the green and red arrows in this image]</p>
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/6968113a6df4f_Screenshot2026-01-15032051.png" alt="Step 1: Signup Guide" class="guide-image">
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="guide-step">
+                        <div class="step-number">2</div>
+                        <p class="guide-text">Step 2 of creating account: Enter mobile number and click Get OTP [Enter number in red arrow area and click Get OTP with yellow arrow]</p>
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/69681143c93a5_Screenshot2026-01-15032406.png" alt="Step 2: OTP Guide" class="guide-image">
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="guide-step">
+                        <div class="step-number">3</div>
+                        <p class="guide-text">Last step: Enter OTP, create password, confirm it, then click on Registration. You're done!</p>
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/696811515346a_Screenshot2026-01-15032614.png" alt="Step 3: Registration Guide" class="guide-image">
+                    </div>
+                </div>
+                
+                <!-- Hindi Guide Content -->
+                <div class="lang-content" id="guide-hi">
+                    <!-- Step 1 in Hindi -->
+                    <div class="guide-step">
+                        <div class="step-number">१</div>
+                        <p class="guide-text">ऑफिशियल साइट खोलें और साइन अप पर क्लिक करें [इस छवि में हरे और लाल तीर देखें]</p>
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/6968113a6df4f_Screenshot2026-01-15032051.png" alt="चरण 1: साइनअप मार्गदर्शिका" class="guide-image">
+                    </div>
+                    
+                    <!-- Step 2 in Hindi -->
+                    <div class="guide-step">
+                        <div class="step-number">२</div>
+                        <p class="guide-text">खाता बनाने का चरण 2: मोबाइल नंबर दर्ज करें और OTP प्राप्त करें पर क्लिक करें [लाल तीर क्षेत्र में नंबर दर्ज करें और पीले तीर के साथ OTP प्राप्त करें पर क्लिक करें]</p>
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/69681143c93a5_Screenshot2026-01-15032406.png" alt="चरण 2: OTP मार्गदर्शिका" class="guide-image">
+                    </div>
+                    
+                    <!-- Step 3 in Hindi -->
+                    <div class="guide-step">
+                        <div class="step-number">३</div>
+                        <p class="guide-text">अंतिम चरण: OTP दर्ज करें, पासवर्ड बनाएं, उसकी पुष्टि करें, फिर रजिस्ट्रेशन पर क्लिक करें। आपका काम पूरा!</p>
+                        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/696811515346a_Screenshot2026-01-15032614.png" alt="चरण 3: पंजीकरण मार्गदर्शिका" class="guide-image">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Fixed Footer Bar -->
+    <footer class="footer-bar">
+        <div class="container">
+            <div class="footer-content">
+                <button class="official-site-btn" id="officialSiteBtn">
+                    Go To Official Site ↗
+                </button>
+                <div class="subtext">
+                    Signup and play to win exciting rewards!
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Simple animation for the WhatsApp button on load
+        // Preload functionality for faster loading
         document.addEventListener('DOMContentLoaded', function() {
-            const whatsappBtn = document.querySelector('.whatsapp-btn');
-            setTimeout(() => {
-                whatsappBtn.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    whatsappBtn.style.transform = 'scale(1)';
-                }, 300);
-            }, 1000);
+            // Language toggle functionality
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const langContents = document.querySelectorAll('.lang-content');
+            const introText = document.getElementById('introText');
+            const guideTitle = document.getElementById('guideTitle');
             
-            // Make bottom bar more noticeable
-            const bottomBar = document.querySelector('.bottom-bar');
-            setTimeout(() => {
-                bottomBar.style.boxShadow = '0 -5px 20px rgba(255, 215, 0, 0.3)';
-            }, 1500);
-        });
-        
-        // Track clicks on the official site button
-       //document.querySelector('.official-btn').addEventListener('click', function() {
-            //alert('Redirecting to the official entertainment hub...');//
+            // English content
+            const englishContent = {
+                intro: "This is a premium gaming site featuring all your favorite games like cricket, football, tennis, casino games, and more. Join thousands of players for an unmatched gaming experience with exciting rewards and tournaments.",
+                guideTitle: "Guide for New Users",
+                footerSubtext: "Signup and play to win exciting rewards!"
+            };
+            
+            // Hindi content
+            const hindiContent = {
+                intro: "यह एक प्रीमियम गेमिंग साइट है जिसमें आपके सभी पसंदीदा गेम जैसे क्रिकेट, फुटबॉल, टेनिस, कैसीनो गेम और बहुत कुछ शामिल हैं। रोमांचक पुरस्कार और टूर्नामेंट के साथ अद्वितीय गेमिंग अनुभव के लिए हजारों खिलाड़ियों से जुड़ें।",
+                guideTitle: "नए उपयोगकर्ताओं के लिए मार्गदर्शिका",
+                footerSubtext: "साइन अप करें और रोमांचक पुरस्कार जीतने के लिए खेलें!"
+            };
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active language button
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const selectedLang = this.getAttribute('data-lang');
+                    
+                    // Show selected language content
+                    langContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `guide-${selectedLang}`) {
+                            content.classList.add('active');
+                        }
+                    });
+                    
+                    // Update text content based on language
+                    if (selectedLang === 'en') {
+                        introText.textContent = englishContent.intro;
+                        guideTitle.textContent = englishContent.guideTitle;
+                        document.querySelector('.subtext').textContent = englishContent.footerSubtext;
+                    } else if (selectedLang === 'hi') {
+                        introText.textContent = hindiContent.intro;
+                        guideTitle.textContent = hindiContent.guideTitle;
+                        document.querySelector('.subtext').textContent = hindiContent.footerSubtext;
+                    }
+                });
+            });
+            
+            // Button click handlers
+            document.getElementById('openSiteBtn').addEventListener('click', function() {
+                window.open('https://acewin247.club', '_blank');
+            });
+            
+            document.getElementById('officialSiteBtn').addEventListener('click', function() {
+                window.open('https://acewin247.club', '_blank');
+            });
+            
+            // Lazy loading for images (already implemented by browser)
+            // Add loading="lazy" to images for better performance
+            document.querySelectorAll('img').forEach(img => {
+                img.setAttribute('loading', 'lazy');
+            });
         });
     </script>
 </body>
